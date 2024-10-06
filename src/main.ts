@@ -31,24 +31,22 @@ container.style.height = "100vh"; // viewport height for vertical centering
 container.appendChild(header);
 container.appendChild(button);
 
-
 let counter: number = 0;
 
-const counterDisplay = document.createElement('div');
+const counterDisplay = document.createElement("div");
 
 //counterDisplay.innerHTML = '${counter} Bananas'
 
-function updateCounter(){
-    counter ++;
-    if(counter == 1){
-        counterDisplay.innerHTML = `${counter} Banana`  
-    }else{
-        counterDisplay.innerHTML = `${counter} Bananas`
-    }
+function updateCounter() {
+  counter++;
+  if (counter == 1) {
+    counterDisplay.innerHTML = `${counter} Banana`;
+  } else {
+    counterDisplay.innerHTML = `${counter} Bananas`;
+  }
 }
 
-
-button.addEventListener('click', updateCounter);
+button.addEventListener("click", updateCounter);
 
 container.appendChild(counterDisplay);
 //connect button tot he body of document
