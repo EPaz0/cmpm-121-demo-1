@@ -39,8 +39,8 @@ const counterDisplay = document.createElement("div");
 
 // Increment the counter by 1 every second
 setInterval(() => {
-    counter++;
-    counterDisplay.innerHTML = `${counter} Bananas`;
+  counter++;
+  counterDisplay.innerHTML = `${counter} Bananas`;
 }, 1500); //Auto clickking every 1.5 seconds
 
 function updateCounter() {
