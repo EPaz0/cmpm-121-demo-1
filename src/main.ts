@@ -44,7 +44,7 @@ function animate(time: number) {
   lastTime = time;
 
   counter += deltaTime / 1000; //Increase by deltaTime in seconds
-  counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`;//DIsplay two decimnal places
+  counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`; //DIsplay two decimnal places
 
   requestAnimationFrame(animate); // Request the next frame
 }
