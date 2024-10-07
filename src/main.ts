@@ -37,22 +37,19 @@ const counterDisplay = document.createElement("div");
 
 //counterDisplay.innerHTML = '${counter} Bananas'
 
-
-
 let lastTime = performance.now();
 
-function animate(time: number){
-    const deltaTime = time - lastTime; // Calculate elapsed time since the last frame
-    lastTime = time;
+function animate(time: number) {
+  const deltaTime = time - lastTime; // Calculate elapsed time since the last frame
+  lastTime = time;
 
-    counter += deltaTime / 1000; //Increase by deltaTime in seconds
-   // counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`;//DIsplay two decimnal places
+  counter += deltaTime / 1000; //Increase by deltaTime in seconds
+  // counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`;//DIsplay two decimnal places
 
-    requestAnimationFrame(animate); // Request the next frame
+  requestAnimationFrame(animate); // Request the next frame
 }
 
-requestAnimationFrame(animate);//start aniamtion loop
-
+requestAnimationFrame(animate); //start aniamtion loop
 
 function updateCounter() {
   counter++;
