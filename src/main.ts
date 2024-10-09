@@ -38,7 +38,7 @@ container.appendChild(button);
 container.appendChild(buttonUpgrade);
 
 let counter: number = 0;
-let growthRate: number = 0
+let growthRate: number = 0;
 
 const counterDisplay = document.createElement("div");
 
@@ -52,7 +52,6 @@ function animate(time: number) {
 
   counter += (growthRate * deltaTime) / 1000; //Increase by deltaTime in seconds
   counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`; //DIsplay two decimnal places
-
 
   // Enable upgrade button if the player has at least 10 units
   buttonUpgrade.disabled = counter < 10;
