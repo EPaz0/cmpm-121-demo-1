@@ -14,7 +14,9 @@ const button = document.createElement("button");
 
 const buttonUpgrade = document.createElement("button") as HTMLButtonElement;
 const buttonUpgradeTwo = document.createElement("button") as HTMLButtonElement;
-const buttonUpgradeThree = document.createElement("button") as HTMLButtonElement;
+const buttonUpgradeThree = document.createElement(
+  "button",
+) as HTMLButtonElement;
 
 //Set button to emoji
 button.innerHTML = "🐵";
@@ -30,7 +32,6 @@ buttonUpgradeThree.disabled = true; // Disable the upgrade button initially'
 
 button.style.fontSize = "24px";
 
-
 // Upgrade Counters
 const upgradeOneCounterDisplay = document.createElement("span");
 upgradeOneCounterDisplay.innerHTML = "0";
@@ -44,8 +45,6 @@ const upgradeThreeCounterDisplay = document.createElement("span");
 upgradeThreeCounterDisplay.innerHTML = "0";
 upgradeThreeCounterDisplay.style.marginLeft = "10px";
 
-
-
 //Create container div to center the button and header
 //uses flexbox to align the children(header & button)
 // vertically and horizontally
@@ -56,12 +55,9 @@ container.style.justifyContent = "center";
 container.style.alignItems = "center";
 container.style.height = "100vh"; // viewport height for vertical centering
 
-
-
 // Append your elements to the containerz
 container.appendChild(header);
 container.appendChild(button);
-
 
 //Create container to center and place future upgrades on the right
 const upgradeContainer = document.createElement("div");
@@ -72,7 +68,6 @@ upgradeContainer.style.transform = "translate(0, -50%)";
 upgradeContainer.style.display = "flex";
 upgradeContainer.style.flexDirection = "column";
 upgradeContainer.style.justifyContent = "center";
-
 
 // Create sub-containers for each upgrade button and counter
 const upgradeButtonContainerOne = document.createElement("div");
@@ -172,7 +167,7 @@ function purchaseUpgradeThree() {
     counter -= 10; // Deduct 10 units
     growthRate = growthRate + 50; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
-    
+
     upgradeThreeCounter++;
     upgradeThreeCounterDisplay.innerHTML = upgradeThreeCounter.toString();
 
@@ -186,7 +181,6 @@ button.addEventListener("click", updateCounter);
 buttonUpgrade.addEventListener("click", purchaseUpgradeOne);
 buttonUpgradeTwo.addEventListener("click", purchaseUpgradeTwo);
 buttonUpgradeThree.addEventListener("click", purchaseUpgradeThree);
-
 
 // Append the container to the app element
 container.appendChild(counterDisplay);
