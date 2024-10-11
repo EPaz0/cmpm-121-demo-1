@@ -158,7 +158,7 @@ function purchaseUpgradeOne() {
 function purchaseUpgradeTwo() {
   if (counter >= upgradeTwoCost) {
     counter -= upgradeTwoCost; // Deduct 10 units
-    growthRate = growthRate + 3; // Increase the growth rate
+    growthRate = growthRate + 2; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
 
     upgradeTwoCounter++;
@@ -175,7 +175,7 @@ function purchaseUpgradeTwo() {
 function purchaseUpgradeThree() {
   if (counter >= upgradeThreeCost) {
     counter -= upgradeThreeCost; // Deduct 10 units
-    growthRate = growthRate + 600; // Increase the growth rate
+    growthRate = growthRate + 50; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
 
     upgradeThreeCounter++;
