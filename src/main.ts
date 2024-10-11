@@ -14,7 +14,9 @@ const button = document.createElement("button");
 
 const buttonUpgrade = document.createElement("button") as HTMLButtonElement;
 const buttonUpgradeTwo = document.createElement("button") as HTMLButtonElement;
-const buttonUpgradeThree = document.createElement("button") as HTMLButtonElement;
+const buttonUpgradeThree = document.createElement(
+  "button",
+) as HTMLButtonElement;
 
 //Set button to emoji
 button.innerHTML = "🐵";
