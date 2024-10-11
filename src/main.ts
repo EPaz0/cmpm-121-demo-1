@@ -9,6 +9,17 @@ const header = document.createElement("h1");
 header.innerHTML = gameName;
 app.append(header);
 
+
+let counter: number = 0;
+let growthRate: number = 0;
+let upgradeOneCounter: number = 0;
+let upgradeTwoCounter: number = 0;
+let upgradeThreeCounter: number = 0;
+
+let upgradeOneCost: number = 10;
+let upgradeTwoCost: number = 100;
+let upgradeThreeCost: number = 1000;
+
 //Button
 const button = document.createElement("button");
 
@@ -21,13 +32,13 @@ const buttonUpgradeThree = document.createElement(
 //Set button to emoji
 button.innerHTML = "🐵";
 
-buttonUpgrade.innerHTML = "🌴 Tier I Upgrade - 10";
+buttonUpgrade.innerHTML = "🌴 Tier I Upgrade - " + upgradeOneCost;
 buttonUpgrade.disabled = true; // Disable the upgrade button initially'
 
-buttonUpgradeTwo.innerHTML = "🏢 Tier II Upgrade - 100";
+buttonUpgradeTwo.innerHTML = "🏢 Tier II Upgrade - " + upgradeTwoCost;
 buttonUpgradeTwo.disabled = true; // Disable the upgrade button initially'
 
-buttonUpgradeThree.innerHTML = "👽 Tier III Upgrade - 1000";
+buttonUpgradeThree.innerHTML = "👽 Tier III Upgrade - " + upgradeThreeCost;
 buttonUpgradeThree.disabled = true; // Disable the upgrade button initially'
 
 button.style.fontSize = "24px";
@@ -93,12 +104,6 @@ upgradeContainer.appendChild(upgradeButtonContainerOne);
 upgradeContainer.appendChild(upgradeButtonContainerTwo);
 upgradeContainer.appendChild(upgradeButtonContainerThree);
 
-let counter: number = 0;
-let growthRate: number = 0;
-let upgradeOneCounter: number = 0;
-let upgradeTwoCounter: number = 0;
-let upgradeThreeCounter: number = 0;
-
 const counterDisplay = document.createElement("div");
 const growthRateDisplay = document.createElement("div");
 
@@ -115,9 +120,9 @@ function animate(time: number) {
   growthRateDisplay.innerHTML = `${growthRate.toFixed(2)} per second`;
 
   // Enable upgrade button if the player has at least 10 units
-  buttonUpgrade.disabled = counter < 10;
-  buttonUpgradeTwo.disabled = counter < 100;
-  buttonUpgradeThree.disabled = counter < 1000;
+  buttonUpgrade.disabled = counter < upgradeOneCost;
+  buttonUpgradeTwo.disabled = counter < upgradeTwoCost;
+  buttonUpgradeThree.disabled = counter < upgradeThreeCost;
 
   requestAnimationFrame(animate); // Request the next frame
 }
@@ -135,44 +140,53 @@ function updateCounter() {
 
 // Upgrade purchase logic
 function purchaseUpgradeOne() {
-  if (counter >= 10) {
-    counter -= 10; // Deduct 10 units
+  if (counter >= upgradeOneCost) {
+    counter -= upgradeOneCost; // Deduct 10 units
     growthRate = growthRate + 0.1; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
 
     upgradeOneCounter++;
     upgradeOneCounterDisplay.innerHTML = upgradeOneCounter.toString();
 
+    upgradeOneCost = Math.floor(upgradeOneCost * 1.5); // Increase the cost of the upgrade
+    buttonUpgrade.innerHTML = `🌴 Tier I Upgrade - ${upgradeOneCost}`;
+
     // Re-disable if counter falls below 10
-    buttonUpgrade.disabled = counter < 10;
+    buttonUpgrade.disabled = counter < upgradeOneCost;
   }
 }
 // Upgrade purchase logic
 function purchaseUpgradeTwo() {
-  if (counter >= 10) {
-    counter -= 10; // Deduct 10 units
-    growthRate = growthRate + 2; // Increase the growth rate
+  if (counter >= upgradeTwoCost) {
+    counter -= upgradeTwoCost; // Deduct 10 units
+    growthRate = growthRate + 3; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
 
     upgradeTwoCounter++;
     upgradeTwoCounterDisplay.innerHTML = upgradeTwoCounter.toString();
 
+    upgradeTwoCost = Math.floor(upgradeTwoCost * 5); // Increase the cost of the upgrade
+    buttonUpgradeTwo.innerHTML = `🌴 Tier II Upgrade - ${upgradeTwoCost}`;
+
     // Re-disable if counter falls below 10
-    buttonUpgrade.disabled = counter < 100;
+    buttonUpgrade.disabled = counter < upgradeTwoCost;
   }
 }
 //Upgrade three function
 function purchaseUpgradeThree() {
-  if (counter >= 10) {
-    counter -= 10; // Deduct 10 units
-    growthRate = growthRate + 50; // Increase the growth rate
+  if (counter >= upgradeThreeCost) {
+    counter -= upgradeThreeCost; // Deduct 10 units
+    growthRate = growthRate + 600; // Increase the growth rate
     counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
 
     upgradeThreeCounter++;
     upgradeThreeCounterDisplay.innerHTML = upgradeThreeCounter.toString();
 
+    upgradeThreeCost = Math.floor(upgradeThreeCost * 100); // Increase the cost of the upgrade
+    buttonUpgradeThree.innerHTML = `🚀 Tier III Upgrade - ${upgradeThreeCost}`;
+
     // Re-disable if counter falls below 10
-    buttonUpgrade.disabled = counter < 1000;
+    buttonUpgrade.disabled = counter < upgradeThreeCost;
   }
 }
 
