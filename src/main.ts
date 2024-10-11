@@ -14,9 +14,7 @@ const button = document.createElement("button");
 
 const buttonUpgrade = document.createElement("button") as HTMLButtonElement;
 const buttonUpgradeTwo = document.createElement("button") as HTMLButtonElement;
-const buttonUpgradeThree = document.createElement(
-  "button",
-) as HTMLButtonElement;
+const buttonUpgradeThree = document.createElement("button") as HTMLButtonElement;
 
 //Set button to emoji
 button.innerHTML = "🐵";
@@ -111,8 +109,8 @@ function animate(time: number) {
   lastTime = time;
 
   counter += (growthRate * deltaTime) / 1000; //Increase by deltaTime in seconds
-  counterDisplay.innerHTML = `${counter.toFixed(0)} Bananas`; //DIsplay two decimnal places
-  growthRateDisplay.innerHTML = `Growth Rate: ${growthRate.toFixed(2)} Bananas/s`;
+  counterDisplay.innerHTML = `${counter.toFixed(0)} 🍌 Bananas`; //DIsplay two decimnal places
+  growthRateDisplay.innerHTML = `${growthRate.toFixed(2)} per second`;
 
   // Enable upgrade button if the player has at least 10 units
   buttonUpgrade.disabled = counter < 10;
