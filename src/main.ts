@@ -9,26 +9,24 @@ const header = document.createElement("h1");
 header.innerHTML = gameName;
 app.append(header);
 
-interface Item{
+interface Item {
   name: string;
   cost: number;
   growthRate: number;
   count: number;
-};
+}
 
 const avaibleItems: Item[] = [
-  {name: "🌴 Tier I Upgrade", cost: 10, growthRate: 0.1, count: 0},
-  {name: "🏢 Tier II Upgrade", cost: 100, growthRate: 1, count: 0},
-  {name: "🚀 Tier III Upgrade", cost: 1000, growthRate: 10, count: 0}
-
+  { name: "🌴 Tier I Upgrade", cost: 10, growthRate: 0.1, count: 0 },
+  { name: "🏢 Tier II Upgrade", cost: 100, growthRate: 1, count: 0 },
+  { name: "🚀 Tier III Upgrade", cost: 1000, growthRate: 10, count: 0 },
 ];
 //Global variables
-let counter: number = - 0;
+let counter: number = -0;
 let growthRate: number = 0;
 const counterDisplay = document.createElement("div");
 const growthRateDisplay = document.createElement("div");
 let lastTime: number = performance.now();
-
 
 //Main Button Container
 const mainContainer = document.createElement("div");
@@ -36,7 +34,6 @@ mainContainer.style.display = "flex";
 mainContainer.style.flexDirection = "column";
 mainContainer.style.alignItems = "center";
 mainContainer.style.marginTop = "20px";
-
 
 //Upgrade Container
 const upgradeContainer = document.createElement("div");
@@ -48,7 +45,6 @@ upgradeContainer.style.display = "flex";
 upgradeContainer.style.flexDirection = "column";
 upgradeContainer.style.justifyContent = "center";
 app.appendChild(upgradeContainer);
-
 
 //MainButton
 const button = document.createElement("button");
@@ -68,7 +64,6 @@ mainContainer.appendChild(growthRateDisplay); // Append the growth rate display 
 // Append Main Container to App
 app.appendChild(mainContainer);
 
-
 // Add event listener to the main button to increment the counter
 button.addEventListener("click", () => {
   counter += 1; // Increment counter by 1 for each click
@@ -81,7 +76,7 @@ avaibleItems.forEach((item) => {
   buttonUpgrade.innerHTML = `${item.name} - ${item.cost}`; // Set the button text to the item name
   buttonUpgrade.disabled = true; // Disable the upgrade button initially
   buttonUpgrade.style.marginBottom = "10px"; // Add some margin to the bottom of the button
-  
+
   //Create counter display for each upgrade
   const itemCounterDisplay = document.createElement("span");
   itemCounterDisplay.innerHTML = item.count.toString();
@@ -97,8 +92,7 @@ avaibleItems.forEach((item) => {
 
   //Add event listener to the button
   buttonUpgrade.addEventListener("click", () => {
-    if(counter >= item.cost)
-    {
+    if (counter >= item.cost) {
       counter -= item.cost; // Deduct the cost of the upgrade
       growthRate += item.growthRate; // Increase the growth rate
       counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`; // Update the counter display
@@ -111,7 +105,6 @@ avaibleItems.forEach((item) => {
 
       //disable the button if the player can't afford it
       buttonUpgrade.disabled = counter < item.cost;
-
     }
   });
 
@@ -122,7 +115,6 @@ avaibleItems.forEach((item) => {
 
   //Call updateButtonState insdie animation loop
   function animate(time: number) {
-    
     const deltaTime = time - lastTime; // Calculate the time since the last frame
     lastTime = time;
 
@@ -134,5 +126,4 @@ avaibleItems.forEach((item) => {
     requestAnimationFrame(animate); // Call the animate function again
   }
   requestAnimationFrame(animate); // Call the animate function for the first time
-
 });
