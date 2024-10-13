@@ -62,6 +62,25 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+.monkey-button {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  font-size: 50px; /* Adjust size as needed */
+  border: none;
+  border-radius: 50%; /* Make the button circular */
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Make the background transparent */
+}
+.monkey-button:focus {
+  outline: none; /* Remove the outline when the button is focused */
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
