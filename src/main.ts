@@ -18,11 +18,46 @@ interface Item {
 }
 
 const avaibleItems: Item[] = [
-  { name: "🌴 Banana Tree Farm", cost: 10, growthRate: 0.1, count: 0, description: "A thriving farm of banana trees that adds a steady supply of bananas to your stash. Perfect for building your monkey empire.\nRate: 0.1" },
-  { name: "🏢 Monkey Business", cost: 100, growthRate: 2, count: 0, description: "A corporate venture run by monkeys, for monkeys. Profits soar as your monkey minions work to bring in the bananas.\nRate: 2"  },
-  { name: "🚀 Rocket Ship", cost: 1000, growthRate: 50, count: 0, description: "Reach for the stars! This rocket ship sends monkeys into orbit to gather cosmic bananas at warp speed.\nRate: 50"  },
-  { name: "🌌 Galaxy", cost: 1500, growthRate:  100, count: 0, description: "The universe is your playground. Harness the power of galaxies to boost banana production like never before.\nRate: 100"  },
-  { name: "🦧 God Hood", cost: 2000, growthRate: 500, count: 0, description: "Ascend to godhood and command the bananas to grow at your whim. Absolute power for the ultimate banana collector.\nRate: 500" }
+  {
+    name: "🌴 Banana Tree Farm",
+    cost: 10,
+    growthRate: 0.1,
+    count: 0,
+    description:
+      "A thriving farm of banana trees that adds a steady supply of bananas to your stash. Perfect for building your monkey empire.\nRate: 0.1",
+  },
+  {
+    name: "🏢 Monkey Business",
+    cost: 100,
+    growthRate: 2,
+    count: 0,
+    description:
+      "A corporate venture run by monkeys, for monkeys. Profits soar as your monkey minions work to bring in the bananas.\nRate: 2",
+  },
+  {
+    name: "🚀 Rocket Ship",
+    cost: 1000,
+    growthRate: 50,
+    count: 0,
+    description:
+      "Reach for the stars! This rocket ship sends monkeys into orbit to gather cosmic bananas at warp speed.\nRate: 50",
+  },
+  {
+    name: "🌌 Galaxy",
+    cost: 1500,
+    growthRate: 100,
+    count: 0,
+    description:
+      "The universe is your playground. Harness the power of galaxies to boost banana production like never before.\nRate: 100",
+  },
+  {
+    name: "🦧 God Hood",
+    cost: 2000,
+    growthRate: 500,
+    count: 0,
+    description:
+      "Ascend to godhood and command the bananas to grow at your whim. Absolute power for the ultimate banana collector.\nRate: 500",
+  },
 ];
 //Global variables
 let counter: number = -0;
