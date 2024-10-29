@@ -56,6 +56,8 @@ const availableItems: Item[] = [
   },
 ];
 
+const COST_MULTIPLIER = 1.5;
+
 let counter: number = 0;
 let growthRate: number = 0;
 let lastTime: number = performance.now();
@@ -139,14 +141,14 @@ availableItems.forEach((item) => {
         counterDisplay.innerHTML = `${Math.floor(counter)} Bananas`;
         item.count++;
         buttonUpgrade.innerHTML = `${item.name} - ${item.cost}`;
-        item.cost = Math.floor(item.cost * 1.5);
+        item.cost = Math.floor(item.cost * COST_MULTIPLIER);
         buttonUpgrade.disabled = counter < item.cost;
 
         // item.count++; // Increase the count of the item
         itemCounterDisplay.innerHTML = item.count.toString(); // Update the item counter display
 
         // Increase the cost of the upgrade
-        item.cost = Math.floor(item.cost * 1.5);
+        item.cost = Math.floor(item.cost * COST_MULTIPLIER);
         buttonUpgrade.innerHTML = `${item.name} - ${item.cost}`;
       }
     },
