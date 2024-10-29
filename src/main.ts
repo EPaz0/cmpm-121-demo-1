@@ -19,11 +19,41 @@ interface Item {
 }
 
 const availableItems: Item[] = [
-  { name: "🌴 Banana Tree Farm", cost: 10, growthRate: 0.1, count: 0, description: "A thriving farm of banana trees..." },
-  { name: "🏢 Monkey Business", cost: 100, growthRate: 2, count: 0, description: "A corporate venture run by monkeys..." },
-  { name: "🚀 Rocket Ship", cost: 1000, growthRate: 50, count: 0, description: "Reach for the stars! This rocket ship..." },
-  { name: "🌌 Galaxy", cost: 1500, growthRate: 100, count: 0, description: "The universe is your playground..." },
-  { name: "🦧 God Hood", cost: 2000, growthRate: 500, count: 0, description: "Ascend to godhood and command bananas..." },
+  {
+    name: "🌴 Banana Tree Farm",
+    cost: 10,
+    growthRate: 0.1,
+    count: 0,
+    description: "A thriving farm of banana trees...",
+  },
+  {
+    name: "🏢 Monkey Business",
+    cost: 100,
+    growthRate: 2,
+    count: 0,
+    description: "A corporate venture run by monkeys...",
+  },
+  {
+    name: "🚀 Rocket Ship",
+    cost: 1000,
+    growthRate: 50,
+    count: 0,
+    description: "Reach for the stars! This rocket ship...",
+  },
+  {
+    name: "🌌 Galaxy",
+    cost: 1500,
+    growthRate: 100,
+    count: 0,
+    description: "The universe is your playground...",
+  },
+  {
+    name: "🦧 God Hood",
+    cost: 2000,
+    growthRate: 500,
+    count: 0,
+    description: "Ascend to godhood and command bananas...",
+  },
 ];
 
 let counter: number = 0;
@@ -31,7 +61,12 @@ let growthRate: number = 0;
 let lastTime: number = performance.now();
 
 // Utility Functions
-function createButton(innerHTML: string, title: string, onClick: () => void, disabled: boolean = false): HTMLButtonElement {
+function createButton(
+  innerHTML: string,
+  title: string,
+  onClick: () => void,
+  disabled: boolean = false,
+): HTMLButtonElement {
   const button = document.createElement("button");
   button.innerHTML = innerHTML;
   button.title = title;
@@ -55,14 +90,25 @@ mainContainer.style.flexDirection = "column";
 mainContainer.style.alignItems = "center";
 mainContainer.style.marginTop = "20px";
 
-const counterDisplay = createDisplay(`${Math.floor(counter)} 🍌 Bananas`, "20px");
-const growthRateDisplay = createDisplay(`${growthRate.toFixed(1)} per second`, "10px");
+const counterDisplay = createDisplay(
+  `${Math.floor(counter)} 🍌 Bananas`,
+  "20px",
+);
+const growthRateDisplay = createDisplay(
+  `${growthRate.toFixed(1)} per second`,
+  "10px",
+);
 
 // Main Button
-const mainButton = createButton("🐵", "Click to earn bananas", () => {
-  counter += 1;
-  counterDisplay.innerHTML = `${Math.floor(counter)} 🍌 Bananas`;
-}, false);
+const mainButton = createButton(
+  "🐵",
+  "Click to earn bananas",
+  () => {
+    counter += 1;
+    counterDisplay.innerHTML = `${Math.floor(counter)} 🍌 Bananas`;
+  },
+  false,
+);
 mainButton.classList.add("monkey-button");
 mainButton.style.fontSize = "300px";
 
@@ -104,7 +150,7 @@ availableItems.forEach((item) => {
         buttonUpgrade.innerHTML = `${item.name} - ${item.cost}`;
       }
     },
-    true
+    true,
   );
 
   const itemCounterDisplay = document.createElement("span");
@@ -133,7 +179,8 @@ function animate(time: number) {
   growthRateDisplay.innerHTML = `${growthRate.toFixed(1)} per second`;
 
   availableItems.forEach((item, index) => {
-    const upgradeButton = upgradeContainer.children[index].children[0] as HTMLButtonElement;
+    const upgradeButton = upgradeContainer.children[index]
+      .children[0] as HTMLButtonElement;
     upgradeButtonState(upgradeButton, item);
   });
 
