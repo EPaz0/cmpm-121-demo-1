@@ -10,6 +10,8 @@ const header = document.createElement("h1");
 header.innerHTML = gameName;
 app.append(header);
 
+const GROWTH_RATE = 0.1;
+
 interface Item {
   name: string;
   cost: number;
@@ -22,35 +24,35 @@ const availableItems: Item[] = [
   {
     name: "🌴 Banana Tree Farm",
     cost: 10,
-    growthRate: 0.1,
+    growthRate: GROWTH_RATE,
     count: 0,
     description: "A thriving farm of banana trees...",
   },
   {
     name: "🏢 Monkey Business",
     cost: 100,
-    growthRate: 2,
+    growthRate: GROWTH_RATE,
     count: 0,
     description: "A corporate venture run by monkeys...",
   },
   {
     name: "🚀 Rocket Ship",
     cost: 1000,
-    growthRate: 50,
+    growthRate: GROWTH_RATE,
     count: 0,
     description: "Reach for the stars! This rocket ship...",
   },
   {
     name: "🌌 Galaxy",
     cost: 1500,
-    growthRate: 100,
+    growthRate: GROWTH_RATE,
     count: 0,
     description: "The universe is your playground...",
   },
   {
     name: "🦧 God Hood",
     cost: 2000,
-    growthRate: 500,
+    growthRate: GROWTH_RATE,
     count: 0,
     description: "Ascend to godhood and command bananas...",
   },
