@@ -81,11 +81,9 @@ button:focus-visible {
 @keyframes fall {
   0% {
     transform: translateY(-100vh) rotate(0deg);
-    
   }
   100% {
     transform: translateY(100vh) rotate(360deg);
-    
   }
 }
 
@@ -97,7 +95,11 @@ button:focus-visible {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -112,7 +114,6 @@ button:focus-visible {
   animation: bounce 0.6s;
   animation-fill-mode: forwards;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

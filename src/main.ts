@@ -111,14 +111,16 @@ const mainButton = createButton(
     counterDisplay.innerHTML = `${Math.floor(counter)} 🍌 Bananas`;
     mainButton.classList.add("bounce-animation");
 
-
     // Remove the class after the animation ends to reset for the next click
-    mainButton.addEventListener("animationend", () => {
-    mainButton.classList.remove("bounce-animation");
-    }, { once: true });
-      // Create multiple bananas to simulate "rain"
-    for (let i = 0; i < 10; i++) 
-    {
+    mainButton.addEventListener(
+      "animationend",
+      () => {
+        mainButton.classList.remove("bounce-animation");
+      },
+      { once: true },
+    );
+    // Create multiple bananas to simulate "rain"
+    for (let i = 0; i < 10; i++) {
       createBanana();
     }
   },
@@ -201,8 +203,6 @@ function animate(time: number) {
 
   requestAnimationFrame(animate);
 }
-
-
 
 function createBanana() {
   const banana = document.createElement("div");
