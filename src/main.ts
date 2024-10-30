@@ -2,6 +2,7 @@
 import "./style.css";
 
 const app: HTMLDivElement = document.querySelector("#app")!;
+document.body.style.backgroundColor = "#7ac476";
 
 const gameName = "Monke Mania";
 document.title = gameName;
@@ -108,6 +109,18 @@ const mainButton = createButton(
   () => {
     counter += 1;
     counterDisplay.innerHTML = `${Math.floor(counter)} 🍌 Bananas`;
+    mainButton.classList.add("bounce-animation");
+
+
+    // Remove the class after the animation ends to reset for the next click
+    mainButton.addEventListener("animationend", () => {
+    mainButton.classList.remove("bounce-animation");
+    }, { once: true });
+      // Create multiple bananas to simulate "rain"
+    for (let i = 0; i < 10; i++) 
+    {
+      createBanana();
+    }
   },
   false,
 );
@@ -187,6 +200,22 @@ function animate(time: number) {
   });
 
   requestAnimationFrame(animate);
+}
+
+
+
+function createBanana() {
+  const banana = document.createElement("div");
+  banana.innerHTML = "🍌";
+  banana.classList.add("banana");
+  banana.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+  banana.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random fall duration between 3-5 seconds
+  document.body.appendChild(banana);
+
+  // Remove the banana after it finishes falling
+  banana.addEventListener("animationend", () => {
+    banana.remove();
+  });
 }
 
 // Start Animation
